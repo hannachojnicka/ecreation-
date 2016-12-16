@@ -1,0 +1,83 @@
+﻿@model ecreationquery.Models.ListaAnkiet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutWithContiner.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ListaAnkiet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nazwaAnkiety)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nazwaAnkiety)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataDodania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataDodania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataZakonczenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataZakonczenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aktywna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aktywna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.liczbaAnkietowanych)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.liczbaAnkietowanych)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pytanie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pytanie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idUzyt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idUzyt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nazwaUzytko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nazwaUzytko)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
