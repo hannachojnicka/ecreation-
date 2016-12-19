@@ -301,6 +301,11 @@
     <Content Include="Views\ListaAnkiets\Details.cshtml" />
     <Content Include="Views\ListaAnkiets\Edit.cshtml" />
     <Content Include="Views\ListaAnkiets\Index.cshtml" />
+    <Content Include="Views\ListaPytans\Create.cshtml" />
+    <Content Include="Views\ListaPytans\Delete.cshtml" />
+    <Content Include="Views\ListaPytans\Details.cshtml" />
+    <Content Include="Views\ListaPytans\Edit.cshtml" />
+    <Content Include="Views\ListaPytans\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -316,6 +321,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ListaAnkietsController.cs" />
+    <Compile Include="Controllers\ListaPytansController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PagesController.BlogPosts.cs" />
     <Compile Include="Controllers\PagesController.Contacts.cs" />
@@ -323,6 +329,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612191333292_nowa.cs" />
+    <Compile Include="Migrations\201612191333292_nowa.Designer.cs">
+      <DependentUpon>201612191333292_nowa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612191451569_fbf.cs" />
+    <Compile Include="Migrations\201612191451569_fbf.Designer.cs">
+      <DependentUpon>201612191451569_fbf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612191509515_sdas.cs" />
+    <Compile Include="Migrations\201612191509515_sdas.Designer.cs">
+      <DependentUpon>201612191509515_sdas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AspNetRole.cs" />
     <Compile Include="Models\AspNetUser.cs" />
@@ -338,6 +357,17 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612191333292_nowa.resx">
+      <DependentUpon>201612191333292_nowa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612191451569_fbf.resx">
+      <DependentUpon>201612191451569_fbf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612191509515_sdas.resx">
+      <DependentUpon>201612191509515_sdas.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

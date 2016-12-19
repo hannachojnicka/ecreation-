@@ -10,123 +10,110 @@ using ecreationquery.Models;
 
 namespace ecreationquery.Controllers
 {
-    [Authorize]
-    public class ListaAnkietsController : Controller
+    public class ListaPytansController : Controller
     {
         private BazaAnkiett db = new BazaAnkiett();
 
-        // GET: ListaAnkiets
-        public ActionResult Index()
+        // GET: ListaPytans
+        public ActionResult Index(int? id)
         {
-            List<ListaAnkiet> listaAnkiet = db.ListaAnkiets.Where(x => x.nazwaUzytko == User.Identity.Name).ToList();
-            return View(listaAnkiet);
+            return View(db.ListaPytans.ToList());
         }
 
-        // GET: ListaAnkiets/Details/5
+        // GET: ListaPytans/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ListaAnkiet listaAnkiet = db.ListaAnkiets.Find(id);
-            if (listaAnkiet == null)
+            ListaPytan listaPytan = db.ListaPytans.Find(id);
+            if (listaPytan == null)
             {
                 return HttpNotFound();
             }
-            return View(listaAnkiet);
+            return View(listaPytan);
         }
 
-        // GET: ListaAnkiets/Create
+        // GET: ListaPytans/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ListaAnkiets/Create
+        // POST: ListaPytans/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "nazwaAnkiety,Aktywna,Pytanie")] ListaAnkiet listaAnkiet)
+        public ActionResult Create([Bind(Include = "id,Pytanie")] ListaPytan listaPytan)
         {
             if (ModelState.IsValid)
             {
-                listaAnkiet.nazwaUzytko = User.Identity.Name;
-                listaAnkiet.dataDodania = DateTime.Now;
-       
-              
-                listaAnkiet.liczbaAnkietowanych = 0;
-                db.ListaAnkiets.Add(listaAnkiet);
+                db.ListaPytans.Add(listaPytan);
                 db.SaveChanges();
-                return RedirectToAction("Index", "ListaPytans");
+                return RedirectToAction("Index");
             }
 
-            return View(listaAnkiet);
+            return View(listaPytan);
         }
 
-        // GET: ListaAnkiets/Edit/5
+        // GET: ListaPytans/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ListaAnkiet listaAnkiet = db.ListaAnkiets.Find(id);
-            if (listaAnkiet == null)
+            ListaPytan listaPytan = db.ListaPytans.Find(id);
+            if (listaPytan == null)
             {
                 return HttpNotFound();
             }
-            return View(listaAnkiet);
+            return View(listaPytan);
         }
 
-        // POST: ListaAnkiets/Edit/5
+        // POST: ListaPytans/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nazwaAnkiety,Aktywna,dataDodania")] ListaAnkiet listaAnkiet)
+        public ActionResult Edit([Bind(Include = "id,Pytanie")] ListaPytan listaPytan)
         {
-            listaAnkiet.nazwaUzytko = User.Identity.Name;
-           
-            
             if (ModelState.IsValid)
             {
-                db.Entry(listaAnkiet).State = EntityState.Modified;
+                db.Entry(listaPytan).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(listaAnkiet);
+            return View(listaPytan);
         }
 
-        // GET: ListaAnkiets/Delete/5
+        // GET: ListaPytans/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ListaAnkiet listaAnkiet = db.ListaAnkiets.Find(id);
-            if (listaAnkiet == null)
+            ListaPytan listaPytan = db.ListaPytans.Find(id);
+            if (listaPytan == null)
             {
                 return HttpNotFound();
             }
-            return View(listaAnkiet);
+            return View(listaPytan);
         }
 
-        // POST: ListaAnkiets/Delete/5
+        // POST: ListaPytans/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ListaAnkiet listaAnkiet = db.ListaAnkiets.Find(id);
-            db.ListaAnkiets.Remove(listaAnkiet);
+            ListaPytan listaPytan = db.ListaPytans.Find(id);
+            db.ListaPytans.Remove(listaPytan);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-     
-
 
         protected override void Dispose(bool disposing)
         {

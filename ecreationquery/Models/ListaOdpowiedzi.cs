@@ -8,16 +8,16 @@ namespace ecreationquery.Models
 
     public partial class ListaOdpowiedzi
     {
+       
         public int id { get; set; }
-
+        [Required]
         public string odpowiedz { get; set; }
 
         public string IP { get; set; }
 
         public int liczbaOdpowiedzi { get; set; }
 
-        public int? ListaAnkiet_id { get; set; }
-
-        public virtual ListaAnkiet ListaAnkiet { get; set; }
+      
+       public virtual ListaPytan listaPytans { get; set; }
     }
 }

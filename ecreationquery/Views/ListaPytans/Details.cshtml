@@ -1,0 +1,27 @@
+﻿@model ecreationquery.Models.ListaPytan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutWithContiner.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ListaPytan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pytanie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pytanie)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

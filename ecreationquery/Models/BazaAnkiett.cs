@@ -37,10 +37,9 @@ namespace ecreationquery.Models
                 .WithRequired(e => e.AspNetUser)
                 .HasForeignKey(e => e.UserId);
 
-            modelBuilder.Entity<ListaAnkiet>()
-                .HasMany(e => e.ListaOdpowiedzis)
-                .WithOptional(e => e.ListaAnkiet)
-                .HasForeignKey(e => e.ListaAnkiet_id);
+         
         }
+
+        public System.Data.Entity.DbSet<ecreationquery.Models.ListaPytan> ListaPytans { get; set; }
     }
 }

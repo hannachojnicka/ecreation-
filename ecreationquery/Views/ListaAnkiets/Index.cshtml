@@ -22,14 +22,12 @@
             @Html.DisplayNameFor(model => model.dataZakonczenia)
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.Aktywna)*@
+            @Html.DisplayNameFor(model => model.Aktywna)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.liczbaAnkietowanych)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pytanie)
-        </th>
+      
       
         <th></th>
     </tr>
@@ -46,14 +44,12 @@
             @Html.DisplayFor(modelItem => item.dataZakonczenia)
         </td>
         <td>
-            @*@Html.DisplayFor(modelItem => item.Aktywna)*@
+            @Html.CheckBoxFor(modelItem => item.Aktywna, new { @disabled = "disabled" })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.liczbaAnkietowanych)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pytanie)
-        </td>
+     
       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
